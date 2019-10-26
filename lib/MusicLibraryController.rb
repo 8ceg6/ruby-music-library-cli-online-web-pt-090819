@@ -20,6 +20,7 @@ class MusicLibraryController
         puts ("To quit, type 'exit'.")
         puts ("What would you like to do?")
       input = gets.strip
+<<<<<<< HEAD
       
         case input
         when 'list songs'
@@ -38,6 +39,10 @@ class MusicLibraryController
       end  
     end 
     
+=======
+         end
+      end 
+>>>>>>> 3c8bb647d28d3cf192d5c245ccbab9b7072e15e1
       def list_songs
         Song.all.sort{|a, b| a.name <=> b.name}.each.with_index(1) do |s, i|
           puts "#{i}. #{s.artist.name} - #{s.name} - #{s.genre.name}"
@@ -47,8 +52,13 @@ class MusicLibraryController
     def list_artists
        artist_sort = Artist.all.sort_by {|artist| artist.name}
        artist_sort
+<<<<<<< HEAD
        artist_sort.each.with_index(1) {|artist,index|  
        puts "#{index}. #{artist.name}"}
+=======
+       artist_sort.each.with_index(1) {|artist,index|
+         puts "#{index}. #{artist.name}"}
+>>>>>>> 3c8bb647d28d3cf192d5c245ccbab9b7072e15e1
        
     end
     
@@ -62,6 +72,7 @@ class MusicLibraryController
     def list_songs_by_artist
         puts("Please enter the name of an artist:")
         name = gets.strip
+<<<<<<< HEAD
        
         if artist = Artist.find_by_name(name)
           artist.songs.sort { |a,b| a.name <=> b.name }.each.with_index(1) do |song, i|
@@ -92,6 +103,21 @@ class MusicLibraryController
           puts "Playing #{song.name} by #{song.artist.name}" if song
           end
     end
+=======
+        songs_by_name = artist.songs.sort_by {|song|
+        song.name}
+        songs_by_name
+        songs_by_name.each.with_index(1) {|song,index|
+        puts "#{index}. #{song.name}"}
+    end 
+    
+  end
+
+
+
+
+
+>>>>>>> 3c8bb647d28d3cf192d5c245ccbab9b7072e15e1
 
 
 
